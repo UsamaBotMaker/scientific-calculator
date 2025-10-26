@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usama's Scientific Calculater</title>
+  <link rel="stylesheet" href="styel.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app" aria-label="Usama's Scientific Calculater">
+    <section class="calculator" role="application">
+      <header class="topbar">
+        <div class="mode">
+          <label class="toggle" title="Angle Mode">
+            <input type="checkbox" id="degToggle" aria-label="Toggle Degrees or Radians" />
+            <span id="angleLabel">RAD</span>
+          </label>
+        </div>
+        <div class="memory-controls">
+          <button class="btn btn-small" data-action="mc" aria-label="Memory Clear">MC</button>
+          <button class="btn btn-small" data-action="mr" aria-label="Memory Recall">MR</button>
+          <button class="btn btn-small" data-action="mplus" aria-label="Memory Add">M+</button>
+          <button class="btn btn-small" data-action="mminus" aria-label="Memory Subtract">M-</button>
+        </div>
+      </header>
+
+      <div class="display" aria-live="polite">
+        <div id="historyLine" class="history-line" aria-hidden="true"></div>
+        <input id="display" class="display-input" type="text" inputmode="numeric" autocomplete="off"
+               placeholder="0" aria-label="Expression input" />
+      </div>
+
+      <section class="keys" aria-label="Calculator Keys">
+        <div class="row">
+          <button class="btn func" data-fn="sin">sin</button>
+          <button class="btn func" data-fn="cos">cos</button>
+          <button class="btn func" data-fn="tan">tan</button>
+          <button class="btn func" data-fn="asin">asin</button>
+          <button class="btn func" data-fn="acos">acos</button>
+          <button class="btn func" data-fn="atan">atan</button>
+        </div>
+        <div class="row">
+          <button class="btn func" data-fn="ln">ln</button>
+          <button class="btn func" data-fn="log">log</button>
+          <button class="btn func" data-fn="sqrt">√</button>
+          <button class="btn func" data-fn="abs">abs</button>
+          <button class="btn func" data-fn="exp">exp</button>
+          <button class="btn func" data-fn="rand">rand</button>
+        </div>
+        <div class="row">
+          <button class="btn" data-insert="(">(</button>
+          <button class="btn" data-insert=")">)</button>
+          <button class="btn" data-insert=",">,</button>
+          <button class="btn" data-insert="pi">π</button>
+          <button class="btn" data-insert="e">e</button>
+          <button class="btn" data-fn="fact">n!</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-accent" data-action="clear">C</button>
+          <button class="btn btn-accent" data-action="allclear">AC</button>
+          <button class="btn btn-accent" data-action="backspace">⌫</button>
+          <button class="btn op" data-insert="^">^</button>
+          <button class="btn op" data-insert="/">÷</button>
+          <button class="btn op" data-insert="*">×</button>
+        </div>
+        <div class="row">
+          <button class="btn" data-insert="7">7</button>
+          <button class="btn" data-insert="8">8</button>
+          <button class="btn" data-insert="9">9</button>
+          <button class="btn op" data-insert="-">−</button>
+          <button class="btn op" data-insert="+">+</button>
+          <button class="btn" data-insert=".">.</button>
+        </div>
+        <div class="row">
+          <button class="btn" data-insert="4">4</button>
+          <button class="btn" data-insert="5">5</button>
+          <button class="btn" data-insert="6">6</button>
+          <button class="btn wide" data-insert="Ans">Ans</button>
+          <button class="btn wide btn-primary" data-action="equals" aria-label="Calculate">=</button>
+        </div>
+        <div class="row">
+          <button class="btn" data-insert="1">1</button>
+          <button class="btn" data-insert="2">2</button>
+          <button class="btn" data-insert="3">3</button>
+          <button class="btn wide" data-fn="pow">x^y</button>
+          <button class="btn" data-insert="0">0</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="history" aria-label="Calculation History">
+      <div class="history-header">
+        <h2>History</h2>
+        <button class="btn btn-small" id="clearHistory">Clear</button>
+      </div>
+      <ul id="historyList" class="history-list" aria-live="polite"></ul>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
